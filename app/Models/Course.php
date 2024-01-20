@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Level;
 use App\Models\Comment;
 use App\Models\Program;
@@ -51,4 +52,10 @@ class Course extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+    
 }
